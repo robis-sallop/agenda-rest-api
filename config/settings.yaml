@@ -1,0 +1,4 @@
+# Configuración de la aplicación
+SECRET_KEY: "clave_secreta"
+TOKEN_EXPIRATION_SECONDS: 60
+MONGODB_URI: "mongodb://admin:admin@localhost:27017/dbagenda"

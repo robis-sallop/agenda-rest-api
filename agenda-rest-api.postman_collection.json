@@ -1,0 +1,89 @@
+{
+  "info": {
+    "name": "Agenda REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colección para probar los endpoints de Agenda REST API."
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://127.0.0.1:5000"},
+    {"key": "token", "value": ""}
+  ],
+  "item": [
+    {
+      "name": "Obtener token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "url": {"raw": "{{baseUrl}}/recordatorios/token", "host": ["{{baseUrl}}"], "path": ["recordatorios", "token"]}
+      },
+      "response": []
+    },
+    {
+      "name": "Crear recordatorio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Comprar leche\",\n  \"detail\": \"Entera 1L\",\n  \"status\": \"pendiente\"\n}"
+        },
+        "url": {"raw": "{{baseUrl}}/recordatorios/", "host": ["{{baseUrl}}"], "path": ["recordatorios", ""]}
+      },
+      "response": []
+    },
+    {
+      "name": "Listar recordatorios",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {"raw": "{{baseUrl}}/recordatorios/", "host": ["{{baseUrl}}"], "path": ["recordatorios", ""]}
+      },
+      "response": []
+    },
+    {
+      "name": "Detalle recordatorio",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {"raw": "{{baseUrl}}/recordatorios/:id", "host": ["{{baseUrl}}"], "path": ["recordatorios", ":id"]}
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar recordatorio",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"hecho\"\n}"
+        },
+        "url": {"raw": "{{baseUrl}}/recordatorios/:id", "host": ["{{baseUrl}}"], "path": ["recordatorios", ":id"]}
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar recordatorio",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {"raw": "{{baseUrl}}/recordatorios/:id", "host": ["{{baseUrl}}"], "path": ["recordatorios", ":id"]}
+      },
+      "response": []
+    }
+  ]
+}
