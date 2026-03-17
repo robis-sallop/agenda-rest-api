@@ -137,7 +137,3 @@ Eliminar:
 ```bash
 curl -X DELETE http://127.0.0.1:5000/recordatorios/<id>
 ```
-
-Nota sobre `mongoose`:
-
-La librería `mongoose` es un ODM de Node.js. Para Python hemos utilizado `mongoengine`, que ofrece una experiencia similar a `mongoose`. Si prefieres que implemente la API en Node.js usando `mongoose`, dime y lo cambio.
